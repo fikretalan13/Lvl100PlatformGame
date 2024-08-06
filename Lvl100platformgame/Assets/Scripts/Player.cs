@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float jumpForce;
 
     bool isGrounded;
+    bool canDoubleJump;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
     float groundCheckRadius = 0.3f;
@@ -17,17 +18,40 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
+    private void Start()
+    {
+        canDoubleJump = false;
+    }
 
     private void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        if (Input.GetButtonDown("Jump") && isGrounded)
+
+
+        if (isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            canDoubleJump = true;
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (isGrounded)
+            {
+                Jump();
+            }
+            else if (canDoubleJump)
+            {
+                Jump();
+                canDoubleJump = false;
+            }
         }
         Movement();
 
+    }
 
+    void Jump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     void Movement()
