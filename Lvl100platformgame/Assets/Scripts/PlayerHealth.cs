@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth instance;
-    int maxHealth = 3;
-    public int currentHealth;
+    [SerializeField] GameObject hitEffect;
 
     [HideInInspector] public bool isDead;
 
@@ -19,18 +18,11 @@ public class PlayerHealth : MonoBehaviour
             Destroy(this);
         }
     }
-    private void Start()
-    {
-        currentHealth = maxHealth;
-    }
 
     public void PlayerTakeDamage()
     {
-        currentHealth--;
-        if (currentHealth < 1)
-        {
-            currentHealth = 0;
-            isDead = true;
-        }
+        isDead = true;
+        Destroy(gameObject);
+        Instantiate(hitEffect, transform.position, Quaternion.identity);
     }
 }
