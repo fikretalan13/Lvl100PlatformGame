@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     public float playerSpeed;
     float horizontalInput;
-    
+
     [Header("Jump System")]
     public float jumpForce;
     bool isGrounded;
@@ -66,13 +66,17 @@ public class Player : MonoBehaviour
                 WallJump();
             }
         }
+
+        ProcessWallSlide();
+        ProcessWallJump();
+    }
+    private void LateUpdate()
+    {
         if (!isWallJumping)
         {
             Movement();
             Flip();
         }
-        ProcessWallSlide();
-        ProcessWallJump();
     }
 
     void Flip()
