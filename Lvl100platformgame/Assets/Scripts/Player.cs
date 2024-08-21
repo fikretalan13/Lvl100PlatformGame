@@ -28,7 +28,9 @@ public class Player : MonoBehaviour
     float wallJumpTimer;
     public Vector2 wallJumpPower = new Vector2(6f, 12f);
 
-
+    [Header("Others")]
+    public bool isGravitySkillsTaken;
+    int pressCount;
 
     private void Awake()
     {
@@ -69,6 +71,15 @@ public class Player : MonoBehaviour
 
         ProcessWallSlide();
         ProcessWallJump();
+
+
+        if (Input.GetKeyDown(KeyCode.G) && isGravitySkillsTaken)
+        {
+            pressCount++;
+            GravityZero();
+
+        }
+
     }
     private void LateUpdate()
     {
@@ -143,6 +154,17 @@ public class Player : MonoBehaviour
         }
     }
 
+    void GravityZero()
+    {
+        if (pressCount % 2 == 1)
+        {
+            rb.gravityScale = 0;
+        }
+        else if (pressCount % 2 == 0)
+        {
+            rb.gravityScale = 3;
+        }
+    }
     void CancelWallJump()
     {
         isWallJumping = false;
