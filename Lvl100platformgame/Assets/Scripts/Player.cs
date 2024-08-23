@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
+
     public Rigidbody2D rb;
     public float playerSpeed;
     float horizontalInput;
@@ -34,10 +36,15 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        if (instance == null)
+        {
+            instance = this;
+        }
+
     }
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         canDoubleJump = false;
 
     }
