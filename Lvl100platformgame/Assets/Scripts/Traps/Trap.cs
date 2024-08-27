@@ -10,5 +10,11 @@ public class Trap : MonoBehaviour
         {
             PlayerHealth.instance.PlayerTakeDamage();
         }
+
+        if (other.CompareTag("FallingPlatform"))
+        {
+            Destroy(other.gameObject);
+
+        }
     }
 }

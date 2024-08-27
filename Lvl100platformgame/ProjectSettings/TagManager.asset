@@ -7,6 +7,7 @@ TagManager:
   - Ball
   - Kapak
   - Box
+  - FallingPlatform
   layers:
   - Default
   - TransparentFX
