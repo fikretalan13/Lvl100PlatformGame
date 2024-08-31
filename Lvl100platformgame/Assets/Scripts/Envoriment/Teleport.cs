@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Teleport : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class Teleport : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Işınlanıyorsunuz...");
+           int randomLevel= Random.Range(1,100);
+           UIManager.instance.currentSceneIndex=randomLevel;
+           SceneManager.LoadScene(randomLevel);
         }
     }
 }

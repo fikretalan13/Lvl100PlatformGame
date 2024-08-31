@@ -64,15 +64,18 @@ public class Player : MonoBehaviour
             if (isGrounded)
             {
                 Jump();
+                AudioManager.instance.PlaySound(0);
             }
             else if (canDoubleJump)
             {
                 Jump();
                 canDoubleJump = false;
+                AudioManager.instance.PlaySound(0);
             }
             else if (isWallSliding)
             {
                 WallJump();
+                AudioManager.instance.PlaySound(0);
             }
         }
 

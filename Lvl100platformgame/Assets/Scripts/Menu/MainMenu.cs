@@ -6,12 +6,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] GameObject settingsPanel;
-
+    public GameObject eventSystem;
     private void Start()
     {
         settingsPanel.SetActive(false);
     }
-
     public void StartBTN()
     {
         SceneManager.LoadScene(1);
@@ -19,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
     public void SettingsBTN()
     {
-         settingsPanel.SetActive(true);
+        settingsPanel.SetActive(true);
     }
     public void CloseSettings()
     {

@@ -9153,6 +9153,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7120406090806100756, guid: 12c3e7821549163409b187369761011e, type: 3}
+      propertyPath: teleportCollider
+      value: 
+      objectReference: {fileID: 4420878504705358284}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

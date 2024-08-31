@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     public void PlayerTakeDamage()
     {
         isDead = true;
+        AudioManager.instance.PlaySound(1);
         Destroy(gameObject);
         Instantiate(hitEffect, transform.position, Quaternion.identity);
     }
