@@ -5143,6 +5143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab454553237e0d4daab59935c1263eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &330222772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5290703592070440191, guid: 3d11fe6397226294dbb35652cb5ca4d4, type: 3}
+  m_PrefabInstance: {fileID: 775621489489405861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &691232147
 GameObject:
   m_ObjectHideFlags: 0
@@ -7444,7 +7449,6 @@ GameObject:
   - component: {fileID: 1983585867}
   - component: {fileID: 1983585866}
   - component: {fileID: 1983585865}
-  - component: {fileID: 1983585864}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -7452,18 +7456,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1983585864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1983585863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b741cbf6a69e4f42a4e1f3a4da7e4ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1983585865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7741,6 +7733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport
       objectReference: {fileID: 0}
+    - target: {fileID: 6719903974287785189, guid: e1a8657ed2fbc6b4baeb930030346e96, type: 3}
+      propertyPath: teleportEffect
+      value: 
+      objectReference: {fileID: 330222772}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

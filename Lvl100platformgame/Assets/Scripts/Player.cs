@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public float playerSpeed;
     float horizontalInput;
+    
+    public Animator anim;
 
     [Header("Jump System")]
     public float jumpForce;
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim=GetComponent<Animator>();
         canDoubleJump = false;
 
     }

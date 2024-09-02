@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioMixer sfxMixer;
     private void Awake()
     {
+        string currentSceneName = SceneManager.GetActiveScene().name;
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -22,13 +24,19 @@ public class AudioManager : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); 
+            
+            if (currentSceneName != "Main Menu")
+            {
+                DontDestroyOnLoad(gameObject);
+            }
+            
+
         }
     }
     private void Start()
     {
-       musicSlider.value=PlayerPrefs.GetFloat("musicVolume");
-       sfxSlider.value=PlayerPrefs.GetFloat("sfxVolume");
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
     }
     public void PlaySound(int index)
     {
