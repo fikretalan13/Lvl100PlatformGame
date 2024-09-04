@@ -10,8 +10,16 @@ public class Ending : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Player.instance.playerSpeed=0;
+            Player.instance.playerSpeed = 0;
             endingAnim.SetActive(true);
+            StartCoroutine(EndingDelay());
         }
+    }
+
+    IEnumerator EndingDelay()
+    {
+        yield return new WaitForSeconds(4);
+        GameManager.instance.GameFinished();
+
     }
 }

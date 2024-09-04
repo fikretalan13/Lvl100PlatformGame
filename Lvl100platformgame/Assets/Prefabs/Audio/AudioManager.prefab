@@ -338,7 +338,10 @@ MonoBehaviour:
   sounds:
   - {fileID: 4327459813653593783}
   - {fileID: 6180271045228626467}
+  - {fileID: 0}
   musicSlider: {fileID: 0}
   sfxSlider: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: 647743ab77d91b24f8fba2ab848edb31, type: 2}
   sfxMixer: {fileID: 24100000, guid: ed26e66eb7c49074c9fde62c25e8fd5a, type: 2}
+  audioSource: {fileID: 0}
+  newMusicClip: {fileID: 0}

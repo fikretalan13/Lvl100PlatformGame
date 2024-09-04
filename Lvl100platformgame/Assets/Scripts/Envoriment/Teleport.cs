@@ -7,13 +7,14 @@ public class Teleport : MonoBehaviour
 {
     int randomLevel;
     [SerializeField] GameObject teleportEffect;
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            GameManager.instance.teleportCount++;
             teleportEffect.SetActive(true);
             Player.instance.playerSpeed = 0;
-            randomLevel = Random.Range(1, 100);
+            randomLevel = Random.Range(1, 101);
             UIManager.instance.currentSceneIndex = randomLevel;
             StartCoroutine(TeleportDelay());
         }
@@ -24,6 +25,7 @@ public class Teleport : MonoBehaviour
         Player.instance.playerSpeed = 12;
         teleportEffect.SetActive(false);
         SceneManager.LoadScene(randomLevel);
+        UIManager.instance.whichLevel.text=randomLevel.ToString();
     }
 
 }

@@ -1,9 +1,10 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Stopwatch : MonoBehaviour
 {
-    private static Stopwatch instance;
+    public static Stopwatch instance;
     public TextMeshProUGUI timerText;  // TextMeshPro bileşenini buraya sürükle
     private float elapsedTime = 0f;
     private bool isRunning = true;
@@ -16,7 +17,7 @@ public class Stopwatch : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); 
+            DontDestroyOnLoad(gameObject);
         }
     }
     void Start()
@@ -39,6 +40,12 @@ public class Stopwatch : MonoBehaviour
 
             // TextMeshPro'ya yazdır
             timerText.text = days.ToString("00") + ":" + hours.ToString("00") + ":" + minutes.ToString("00") + ":" + seconds.ToString("00");
+            if (GameManager.instance.isGameFinished)
+            {
+                StopTimer();
+                GameManager.instance.timerResult.text=timerText.text;
+                ResetTimer();
+            }
         }
     }
 
@@ -51,4 +58,12 @@ public class Stopwatch : MonoBehaviour
     {
         isRunning = true;
     }
+    public void ResetTimer()
+{
+    elapsedTime = 0f; // Geçen zamanı sıfırla
+    timerText.text = "00:00:00:00"; // TextMeshPro'yu sıfır zaman formatında güncelle
+
+    // İsterseniz sayacı yeniden başlatabilirsiniz
+    isRunning = false;
+}
 }

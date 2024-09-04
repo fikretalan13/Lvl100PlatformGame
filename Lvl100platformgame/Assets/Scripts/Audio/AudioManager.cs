@@ -14,6 +14,11 @@ public class AudioManager : MonoBehaviour
 
     public AudioMixer audioMixer;
     public AudioMixer sfxMixer;
+
+    public AudioSource audioSource; // Müzik çalacak AudioSource
+    public AudioClip newMusicClip;
+    public AudioClip oldMusicClip; // Yeni müzik klibi
+    
     private void Awake()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
@@ -24,13 +29,10 @@ public class AudioManager : MonoBehaviour
         else
         {
             instance = this;
-            
             if (currentSceneName != "Main Menu")
             {
                 DontDestroyOnLoad(gameObject);
             }
-            
-
         }
     }
     private void Start()
@@ -53,4 +55,35 @@ public class AudioManager : MonoBehaviour
         sfxMixer.SetFloat("sfx", volume);
         PlayerPrefs.SetFloat("sfxVolume", sfxSlider.value);
     }
+
+    public void ChangeMusic()
+    {
+        // Eğer bir müzik çalıyorsa durdur
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop(); // Mevcut müziği durdur
+        }
+
+        // Yeni müzik klibini ata
+        audioSource.clip = newMusicClip;
+
+        // Yeni müziği çal
+        audioSource.Play();
+    }
+    public void ChangeMusicAgain()
+    {
+        // Eğer bir müzik çalıyorsa durdur
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop(); // Mevcut müziği durdur
+        }
+
+        // Yeni müzik klibini ata
+        audioSource.clip = oldMusicClip;
+
+        // Yeni müziği çal
+        audioSource.Play();
+    }
+
+
 }

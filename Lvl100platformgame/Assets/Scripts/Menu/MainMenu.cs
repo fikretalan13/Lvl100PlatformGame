@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public void StartBTN()
     {
         SceneManager.LoadScene(1);
+        Stopwatch.instance.StartTimer();
     }
 
     public void SettingsBTN()
